@@ -64,8 +64,8 @@
             try {
                 // ব্যবহারকারীর প্রম্পট সহ চ্যাট ইতিহাস সংজ্ঞায়িত করা
                 let chatHistory = [];
-                // API-কে বাংলায় সংক্ষিপ্ত রেসিপি চাইতে বলা
-                chatHistory.push({ role: "user", parts: [{ text: `"${prompt}"-এর জন্য একটি সংক্ষিপ্ত এবং সুস্বাদু রেসিপি তৈরি করুন। আউটপুটটি নিম্নলিখিত JSON ফরম্যাটে দিন: { "recipeName": "string", "ingredients": ["string"], "instructions": ["string"] }। প্রতিটি নির্দেশনার ধাপ খুব সংক্ষিপ্ত এবং সরাসরি হবে।` }] });
+                // *** গুরুত্বপূর্ণ পরিবর্তন: প্রম্পটে স্পষ্ট করে বলা হয়েছে যে আউটপুট বাংলায় হবে ***
+                chatHistory.push({ role: "user", parts: [{ text: `"${prompt}"-এর জন্য একটি সংক্ষিপ্ত এবং সুস্বাদু রেসিপি **বাংলায়** তৈরি করুন। আউটপুটটি নিম্নলিখিত JSON ফরম্যাটে দিন: { "recipeName": "string", "ingredients": ["string"], "instructions": ["string"] }। প্রতিটি নির্দেশনার ধাপ খুব সংক্ষিপ্ত এবং সরাসরি হবে এবং **বাংলায়** লিখুন।` }] });
 
                 // API অনুরোধের জন্য পে-লোড সংজ্ঞায়িত করা, কাঠামোগত প্রতিক্রিয়া স্কিমা সহ
                 const payload = {
@@ -91,7 +91,7 @@
                     }
                 };
 
-               
+                // IMPORTANT: apiKey খালি স্ট্রিং হিসাবে রাখুন। ক্যানভাস রানটাইমে এটি স্বয়ংক্রিয়ভাবে সরবরাহ করবে।
                 const apiKey = "AIzaSyBVVQxYu_0iKhuVOuuRW4rlX8dl8g0ND60";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
