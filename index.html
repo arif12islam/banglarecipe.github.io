@@ -6,105 +6,7 @@
     <title>জেমিনি বাংলা রেসিপি | আপনার পছন্দের রান্না</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans Bengali', sans-serif;
-            background-color: #F8F4E3; /* Warm off-white, reminiscent of traditional homes */
-            color: #3B3C36; /* Dark charcoal for good contrast */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjRkUwRkYyIiBmaWxsLW9wYWNpdHk9IjAuNiIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCA0MGMtMS4xNjctNy45MjUgNC0xNS41ODYgMTYtMjMgMTkuMDk1LTEyLjAzNiAyNi45NzQtMTYgNDAtMTAuNjYzIDkuNzMzIDMuNTIzIDcuMTg4IDkuODIzIDYuMDM2IDEyLjMwMy0xLjAxIDEuODk2LS44MjggNC42OTUtMi44ODcgNi4wMTQtLjU2Ny41Ni0xLjczLjkzMi0yLjQxMyAxLjUxNkwzNS4yNSA0MC0yLjQxMi02LjM1Mmw0Mi4zMzMgNjEuMDQzLTMzLjU2Mi01OC42NDQtNDAuMDA0LTExLjc4NnoiLz48L2c+PC9zdmc+'); /* Subtle background pattern */
-        }
-        .container-card {
-            background-color: #FFFFFF; /* Pure white for the main card */
-            border-radius: 1rem; /* More rounded corners */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Stronger shadow */
-            border: 1px solid #E0E0D7; /* Soft border */
-        }
-        .header-text {
-            font-family: 'Playfair Display', serif;
-            color: #8B4513; /* Warm brown */
-        }
-        .button-primary {
-            background-color: #D35400; /* Deep orange-red, reminiscent of spices */
-            color: #FFFFFF;
-            font-weight: 500;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .button-primary:hover {
-            background-color: #E67E22; /* Lighter orange on hover */
-        }
-        .input-field {
-            border: 1px solid #D1C4BB; /* Softer border for input */
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            color: #3B3C36;
-        }
-        .recipe-output-card {
-            background-color: #FFF9E6; /* Light yellow-cream for recipe area */
-            border: 1px dashed #D35400; /* Dashed border for visual interest */
-            border-radius: 0.75rem;
-            min-height: 200px;
-        }
-        .section-heading {
-            font-family: 'Playfair Display', serif;
-            color: #8B4513;
-            font-weight: 700;
-        }
-        .recipe-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for steps */
-            gap: 1rem;
-        }
-        .grid-step {
-            background-color: #FFFFFF; /* White background for each step */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Subtle shadow for each step */
-            border: 1px solid #F0E6D7;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-        .step-number {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            background-color: #D35400;
-            color: white;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-            border: 2px solid white;
-        }
-        /* Custom styles for loading spinner */
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-left-color: #FFFFFF; /* White spinner */
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            animation: spin 1s linear infinite;
-            display: none; /* Hidden by default */
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased">
     <div class="container-card p-8 rounded-xl shadow-2xl max-w-4xl w-full mx-auto my-8">
@@ -185,13 +87,12 @@
                             },
                             "propertyOrdering": ["recipeName", "ingredients", "instructions"]
                         },
-                        // তাপমাত্রা কমিয়ে সৃজনশীলতা বাড়ানো (বাস্তব ক্ষেত্রে টেম্পারেচার নিয়ে পরীক্ষা করা যেতে পারে)
                         temperature: 0.7 
                     }
                 };
 
                 // IMPORTANT: apiKey খালি স্ট্রিং হিসাবে রাখুন। ক্যানভাস রানটাইমে এটি স্বয়ংক্রিয়ভাবে সরবরাহ করবে।
-                const apiKey = "AIzaSyBVVQxYu_0iKhuVOuuRW4rlX8dl8g0ND60";
+                const apiKey = "";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 // API কল করা
